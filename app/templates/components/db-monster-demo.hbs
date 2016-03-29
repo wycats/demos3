@@ -1,0 +1,20 @@
+{{#if fps}}
+  <div id="fps">{{fps}} FPS</div>
+{{/if}}
+
+
+{{#if isPlaying}}
+  {{!-- FIXME: we need the `action` helper working --}}
+  <button onclick={{pause}}>Pause</button>
+{{else}}
+  {{!-- FIXME: we need the `action` helper working --}}
+  <button onclick={{play}}>Play</button>
+{{/if}}
+
+<table class="table table-striped latest-data">
+  <tbody>
+    {{#each model.databaseArray key='name' as |db|}}
+      {{dbmon-database db=db}}
+    {{/each}}
+  </tbody>
+</table>
